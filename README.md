@@ -79,8 +79,8 @@ npm start
     know it's them?
     2. ***ACCEPTABLE*** Are all requests from 46elks guaranteed to come from a
     certain IP range, so we can firewall off everything else?
-    3. ***UGLY / NECESSARY*** Otherwise, let's hide our API under a very secret
-    long "directory" which only 46elks know about; for example
+    3. ***UGLY / NECESSARY*** Otherwise, we could hide our API under a very
+    secret long "directory" which only 46elks would know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
       * Using [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
       generate it.
