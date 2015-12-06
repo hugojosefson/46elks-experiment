@@ -83,9 +83,9 @@ npm start
     secret long "directory" which only 46elks would know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
       * Using [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
-      generate it.
-      * When creating a new current secret, set a TTL on the previous secret
-      for how long it remains valid.
+      generate that access secret in the url.
+      * When creating a new current access secret, set a TTL on the previous
+      access secret for how long it remains valid.
   * Do something with recorded voice messages, instead of simply logging their
   URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
   * Add admin service on a port not exposed to the Internet:
@@ -102,9 +102,9 @@ npm start
     * `POST   /numbers/:number/configure` configures any of the 46elks account's
     phone numbers to use this server, which means this server calls the 46elks
     API and configures the number with relevant `sms_url` and `voice_start`.
-    * `POST   /access-secrets` creates a new secret and sets it as the current,
-    reconfiguring all configured phone numbers' `sms_url` and `voice_start`'s.
-    *This has consequences for `/numbers/configured` and
+    * `POST   /access-secrets` creates a new access secret and sets it as the
+    current, reconfiguring all configured phone numbers' `sms_url` and
+    `voice_start`'s. *This has consequences for `/numbers/configured` and
     `/numbers/unconfigured`, so their specification and implementations must be
     updated when this is implemented.*
     * `GET    /access-secrets` lists all active access secrets, specifying which
@@ -112,7 +112,7 @@ npm start
     * `GET    /access-secrets/current` 302-redirects to the current access secret.
     * `GET    /access-secrets/:secret` full info on an access secret.
     * `DELETE /access-secrets/:secret` deletes an access secret. The current
-    secret is not allowed to be deleted.
+    access secret is not allowed to be deleted.
     * Add admin GUI
       * Fetch and display phone numbers belonging to the 46elks account, and
       their configuration status. (`GET /numbers`)
@@ -120,4 +120,4 @@ npm start
       ![Flag indicating Swedish number](http://www.flag-cdn.com/flags/16/se.png)
       +46070000000
       * Click to configure a phone number to use this server.
-      * Click to update secret.
+      * Click to update access secret.
