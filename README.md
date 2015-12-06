@@ -74,12 +74,13 @@ npm start
 
 ## TODO / Ideas
 
-  * Secure the app against non-46elks computers accessing it.
-    * Can 46elks sign every request so we know it's them?
-    * Are all requests from 46elks guaranteed to come from a certain IP range,
-    so we can firewall it?
-    * Otherwise, let's hide our API under a very secret long "directory" which
-    only 46elks know about; for example
+  * Secure this server app against non-46elks computers accessing it.
+    1. ***BEST*** Can 46elks sign every request, or include some secret, so we
+    know it's them?
+    2. ***ACCEPTABLE*** Are all requests from 46elks guaranteed to come from a
+    certain IP range, so we can firewall it?
+    3. ***UGLY / NECESSARY*** Otherwise, let's hide our API under a very secret
+    long "directory" which only 46elks know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
       * Using [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
       generate it.
