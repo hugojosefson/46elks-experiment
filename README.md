@@ -105,7 +105,7 @@ npm start
     `/numbers/configured`, so its implementation and specification must be
     updated.
     * Add admin GUI
-      * Fetch and display phone numbers belonging to the elk46 account, and
+      * Fetch and display phone numbers belonging to the 46elks account, and
       their configuration status.
       * Show phone numbers with flags, for example
       ![Flag indicating Swedish number](http://www.flag-cdn.com/flags/16/se.png)
