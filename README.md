@@ -83,12 +83,8 @@ npm start
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
       * Using [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
       generate it.
-      * How do we handle switching secret directory, and not loosing any
-      traffic?
-        * Do 46elks change their behavior quickly enough if we simply
-        reconfigure via their API and switch?
-        * Perhaps allow previous secret to be valid for a certain period, while
-        the change takes place?
+      * When creating a new current secret, set a TTL on the previous secret
+      for how long it remains valid.
   * Do something with recorded voice messages, instead of simply logging their
   URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
   * Add admin service on a port not exposed to the Internet:
