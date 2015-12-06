@@ -90,23 +90,23 @@ npm start
   * Do something with recorded voice messages, instead of simply logging their
   URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
   * Add admin service
-    * `GET /numbers` lists all numbers in the 46elks account. 
+    * `GET /numbers` lists all phone numbers in the 46elks account. 
     * `GET /numbers/configured` lists all numbers configured to use this server.
     This means the full list is filtered on the numbers which have the correct
     `sms_url` and `voice_start` fields set. (Could be partial, if only one of
     the fields are set correctly. Indicate each of `sms` and `voice`.)
     * `POST /numbers/:number/configure` configures any of the 46elks account's
-    numbers to use this server, which means this server calls the 46elks API and
-    configures the number with relevant `sms_url` and `voice_start`.
+    phone numbers to use this server, which means this server calls the 46elks
+    API and configures the number with relevant `sms_url` and `voice_start`.
     * `POST /secret/new` assigns a new secret, reconfiguring all configured
     phone numbers' `sms_url` and `voice_start`'s. This has consequences for
     `/numbers/configured`, so its implementation and specification must be
     updated.
     * Add admin GUI
-      * Fetch and display numbers belonging to the elk46 account, and their
-      configuration status.
-      * Show numbers with flags, for example
+      * Fetch and display phone numbers belonging to the elk46 account, and
+      their configuration status.
+      * Show phone numbers with flags, for example
       ![Flag indicating Swedish number](http://www.flag-cdn.com/flags/16/se.png)
       +46070000000
-      * Click to configure a number to use this server.
+      * Click to configure a phone number to use this server.
       * Click to update secret.
