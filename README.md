@@ -13,7 +13,7 @@ currently logged, and not sent anywhere.*
 
   * Secure the app against non-46elks computers accessing it.
   * Do something with recorded voice messages, instead of simply logging their
-  URI to console.
+  URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
 
 ## Installation
 
