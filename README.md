@@ -54,6 +54,12 @@ sms_url     = https://yourname.localtunnel.me/sms
 voice_start = https://yourname.localtunnel.me/voice/start
 ```
 
+### An account with voicerss
+
+Sign up for a free account at [www.voicerss.org](http://www.voicerss.org/).
+
+Obtain an API key.
+
 ## Running
 
 ```bash
