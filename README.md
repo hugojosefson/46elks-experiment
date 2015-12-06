@@ -88,7 +88,7 @@ npm start
     3. ***UGLY / NECESSARY*** Otherwise, we could hide our API under a very
     secret long "directory" which only 46elks would know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
-      * Using [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
+      * Use [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
       generate that access secret in the url.
       * When creating a new current access secret, set a TTL on the previous
       access secret for how long it remains valid.
