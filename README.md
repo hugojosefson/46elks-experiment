@@ -81,6 +81,8 @@ npm start
     * Otherwise, let's hide our API under a very secret long "directory" which
     only 46elks know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
+      * Using [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
+      generate it.
       * How do we handle switching secret directory, and not loosing any
       traffic?
         * Do 46elks change their behavior quickly enough if we simply
