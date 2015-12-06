@@ -91,22 +91,34 @@ npm start
         the change takes place?
   * Do something with recorded voice messages, instead of simply logging their
   URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
-  * Add admin service
-    * `GET /numbers` lists all phone numbers in the 46elks account. 
-    * `GET /numbers/configured` lists all numbers configured to use this server.
+  * Add admin service on a port not exposed to the Internet:
+    * `GET    /numbers` lists all phone numbers in the 46elks account.
+    * `GET    /numbers/configured` lists all numbers configured to use this server.
     This means the full list is filtered on the numbers which have the correct
-    `sms_url` and `voice_start` fields set. (Could be partial, if only one of
-    the fields are set correctly. Indicate each of `sms` and `voice`.)
-    * `POST /numbers/:number/configure` configures any of the 46elks account's
+    `sms_url` and `voice_start` fields set.
+    * `GET    /numbers/unconfigured` lists all numbers not correctly configured to
+    use this server. Indicates which of `sms` and `voice_start` need
+    configuring, or both. 
+    * `POST   /numbers` allocates a new phone number with 46elks and configures
+    it for use with this server.
+    * `DELETE /numbers/:number` deallocates a phone number with 46elks.
+    * `POST   /numbers/:number/configure` configures any of the 46elks account's
     phone numbers to use this server, which means this server calls the 46elks
     API and configures the number with relevant `sms_url` and `voice_start`.
-    * `POST /secret/new` assigns a new secret, reconfiguring all configured
-    phone numbers' `sms_url` and `voice_start`'s. This has consequences for
-    `/numbers/configured`, so its implementation and specification must be
-    updated.
+    * `POST   /access-secrets` creates a new secret and sets it as the current,
+    reconfiguring all configured phone numbers' `sms_url` and `voice_start`'s.
+    *This has consequences for `/numbers/configured` and
+    `/numbers/unconfigured`, so their specification and implementations must be
+    updated when this is implemented.*
+    * `GET    /access-secrets` lists all active access secrets, specifying which
+    one is the current.
+    * `GET    /access-secrets/current` 302-redirects to the current access secret.
+    * `GET    /access-secrets/:secret` full info on an access secret.
+    * `DELETE /access-secrets/:secret` deletes an access secret. The current
+    secret is not allowed to be deleted.
     * Add admin GUI
       * Fetch and display phone numbers belonging to the 46elks account, and
-      their configuration status.
+      their configuration status. (`GET /numbers`)
       * Show phone numbers with flags, for example
       ![Flag indicating Swedish number](http://www.flag-cdn.com/flags/16/se.png)
       +46070000000
