@@ -1,19 +1,18 @@
 # 46elks-experiment
 
-Experiment with telephony/sms API [46elks.com](https://www.46elks.com/).
+Experimenting with using the very interesting telephony/sms API
+[46elks.com](https://www.46elks.com/).
 
-Currently this is an **answering machine**, programmable with text strings,
-using the [www.voicerss.org](http://www.voicerss.org/) API for text-to-speech
-(TTS) conversion.
+[<img src="http://www.46elks.com/images/media/46elks-horizontal.png" border="0" alt="46elks.com">](https://www.46elks.com/)
 
-*Note: When this server receives a recorded voice message from 46elks, it is
-currently logged, and not sent anywhere.*
+Currently what I do here is an **answering machine**, programmable with text
+strings, using the [www.voicerss.org](http://www.voicerss.org/) API for
+text-to-speech (TTS) conversion.
 
-## TODO
+*Note: When this answering machine server receives a recorded voice message
+from 46elks, it is currently simply logged, and not sent anywhere.*
 
-  * Secure the app against non-46elks computers accessing it.
-  * Do something with recorded voice messages, instead of simply logging their
-  URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
+See below for *TODO / Ideas*.
 
 ## Installation
 
@@ -72,3 +71,42 @@ export LOCALTUNNEL_SUBDOMAIN=yourname
 export PORT=3001                         # to optionally set which port your server should listen on (default is 3001)
 npm start
 ```
+
+## TODO / Ideas
+
+  * Secure the app against non-46elks computers accessing it.
+    * Can 46elks sign every request so we know it's them?
+    * Are all requests from 46elks guaranteed to come from a certain IP range,
+    so we can firewall it?
+    * Otherwise, let's hide our API under a very secret long "directory" which
+    only 46elks know about; for example
+    `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
+      * How do we handle switching secret directory, and not loosing any
+      traffic?
+        * Do 46elks change their behavior quickly enough if we simply
+        reconfigure via their API and switch?
+        * Perhaps allow previous secret to be valid for a certain period, while
+        the change takes place?
+  * Do something with recorded voice messages, instead of simply logging their
+  URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
+  * Add admin service
+    * `GET /numbers` lists all numbers in the 46elks account. 
+    * `GET /numbers/configured` lists all numbers configured to use this server.
+    This means the full list is filtered on the numbers which have the correct
+    `sms_url` and `voice_start` fields set. (Could be partial, if only one of
+    the fields are set correctly. Indicate each of `sms` and `voice`.)
+    * `POST /numbers/:number/configure` configures any of the 46elks account's
+    numbers to use this server, which means this server calls the 46elks API and
+    configures the number with relevant `sms_url` and `voice_start`.
+    * `POST /secret/new` assigns a new secret, reconfiguring all configured
+    phone numbers' `sms_url` and `voice_start`'s. This has consequences for
+    `/numbers/configured`, so its implementation and specification must be
+    updated.
+    * Add admin GUI
+      * Fetch and display numbers belonging to the elk46 account, and their
+      configuration status.
+      * Show numbers with flags, for example
+      ![Flag indicating Swedish number](http://www.flag-cdn.com/flags/16/se.png)
+      +46070000000
+      * Click to configure a number to use this server.
+      * Click to update secret.
