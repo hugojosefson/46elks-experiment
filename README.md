@@ -84,7 +84,8 @@ npm start
     1. ***BEST*** Can 46elks sign every request, or include some secret, so we
     know it's them?
     2. ***ACCEPTABLE*** Are all requests from 46elks guaranteed to come from a
-    certain IP range, so we can firewall off everything else?
+    certain IP range, so we can firewall off everything else? Maybe fetch a list
+    of 46elks IP subnets or addresses from their API?
     3. ***UGLY / NECESSARY*** Otherwise, we could hide our API under a very
     secret long "directory" which only 46elks would know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
