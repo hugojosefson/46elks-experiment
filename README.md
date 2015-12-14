@@ -63,6 +63,8 @@ Obtain an API key.
 ## Running
 
 ```bash
+export ELKS_API_USERNAME=00000000000000  # use your actual API username from dashboard.46elks.com
+export ELKS_API_PASSWORD=00000000000000  # use your actual API password from dashboard.46elks.com
 export VOICERSS_KEY=0000000000000000000  # use your actual API key from www.voicerss.org
 export BASE_URL=https://your.server.tld  # where 46elks can access your server, without trailing slash
 export PORT=3001                         # to optionally set which port your server should listen on (default is 3001)
@@ -72,6 +74,8 @@ npm start
 If you are using `localtunnel`, you can use `LOCALTUNNEL_SUBDOMAIN` instead of `BASE_URL` if you want:
 
 ```bash
+export ELKS_API_USERNAME=00000000000000  # use your actual API username from dashboard.46elks.com
+export ELKS_API_PASSWORD=00000000000000  # use your actual API password from dashboard.46elks.com
 export VOICERSS_KEY=0000000000000000000  # use your actual API key from www.voicerss.org
 export LOCALTUNNEL_SUBDOMAIN=yourname
 export PORT=3001                         # to optionally set which port your server should listen on (default is 3001)
@@ -96,7 +100,7 @@ npm start
   * Do something with recorded voice messages, instead of simply logging their
   URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
   * Add admin service on a port not exposed to the Internet:
-    * `GET    /numbers` lists all phone numbers in the 46elks account.
+    * *DONE:* ~~`GET    /numbers` lists all phone numbers in the 46elks account.~~
     * `GET    /numbers/configured` lists all numbers configured to use this server.
     This means the full list is filtered on the numbers which have the correct
     `sms_url` and `voice_start` fields set.
