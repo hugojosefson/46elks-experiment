@@ -109,8 +109,8 @@ npm start
     configuring, or both. 
     * `POST   /numbers` allocates a new phone number with 46elks and configures
     it for use with this server.
-    * `DELETE /numbers/:number` deallocates a phone number with 46elks.
-    * `POST   /numbers/:number/configure` configures any of the 46elks account's
+    * `DELETE /numbers/:id` deallocates a phone number with 46elks.
+    * `POST   /numbers/:id/configure` configures any of the 46elks account's
     phone numbers to use this server, which means this server calls the 46elks
     API and configures the number with relevant `sms_url` and `voice_start`.
     * `POST   /access-secrets` creates a new access secret and sets it as the
