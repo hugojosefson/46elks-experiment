@@ -6,7 +6,7 @@ import numbers from './routes/numbers';
 
 const app = express();
 
-app.use('/health', allowMethods('OPTIONS', 'GET'));
+app.use('/health', allowMethods(['OPTIONS', 'GET']));
 app.get('/health', respond200({
     _links: {
         parent: {href: '/'}
@@ -14,10 +14,10 @@ app.get('/health', respond200({
     status: 'good'
 }));
 
-app.use('/numbers', allowMethods('OPTIONS', 'GET'));
+app.use('/numbers', allowMethods(['OPTIONS', 'GET']));
 app.get('/numbers', numbers);
 
-app.use('/', allowMethods('OPTIONS', 'GET'));
+app.use('/', allowMethods(['OPTIONS', 'GET']));
 app.get('/', respond200({
     _links: {
         health: {href: '/health'},
