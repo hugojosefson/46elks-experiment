@@ -9,19 +9,19 @@ import speak from './routes/speak';
 
 const app = express();
 
-app.use('/health', allowMethods('OPTIONS', 'GET'));
+app.use('/health', allowMethods(['OPTIONS', 'GET']));
 app.get('/health', respond200({status: 'good'}));
 
-app.use('/health', allowMethods('OPTIONS', 'POST'));
+app.use('/health', allowMethods(['OPTIONS', 'POST']));
 app.post('/sms', smsPost);
 
-app.use('/voice/start', allowMethods('OPTIONS', 'POST'));
+app.use('/voice/start', allowMethods(['OPTIONS', 'POST']));
 app.post('/voice/start', voiceStartPost);
 
-app.use('/voice/recorded', allowMethods('OPTIONS', 'POST'));
-app.post('/voice/', voiceRecordedPost);
+app.use('/voice/recorded', allowMethods(['OPTIONS', 'POST']));
+app.post('/voice/recorded', voiceRecordedPost);
 
-app.use('/speak/:lang/:text', allowMethods('OPTIONS', 'GET'));
+app.use('/speak/:lang/:text', allowMethods(['OPTIONS', 'GET']));
 app.get('/speak/:lang/:text', speak);
 
 export default app;
