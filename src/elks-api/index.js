@@ -2,12 +2,16 @@ import express from 'express';
 import allowMethods from 'allow-methods';
 import {respond200} from 'express-respond-simple';
 
+import log from '../log';
+
 import smsPost from './routes/sms-post';
 import voiceStartPost from './routes/voice/start-post';
 import voiceRecordedPost from './routes/voice/recorded-post';
 import speak from './routes/speak';
 
 const app = express();
+
+app.use(log);
 
 app.use('/health', allowMethods(['OPTIONS', 'GET']));
 app.get('/health', respond200({status: 'good'}));
