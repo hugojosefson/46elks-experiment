@@ -1,5 +1,4 @@
 import {me} from '../../api';
-import _ from 'lodash';
 
 export default (req, res) => {
     console.log('numbers');
