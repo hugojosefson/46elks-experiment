@@ -27,7 +27,8 @@
     "lodash": "^3.10.1",
     "piping": "^0.3.0",
     "request": "^2.67.0",
-    "request-promise": "^1.0.2"
+    "traverson": "^3.1.1",
+    "traverson-hal": "^4.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.6",

@@ -1,33 +1,14 @@
-import {ELKS_API_URI, ELKS_API_USERNAME, ELKS_API_PASSWORD} from '../../config';
-import request from 'request-promise';
+import {me} from '../../api';
 import _ from 'lodash';
 
 export default (req, res) => {
-    request({
-        uri: `${ELKS_API_URI}/Numbers`,
-        auth: {
-            user: ELKS_API_USERNAME,
-            pass: ELKS_API_PASSWORD
-        },
-        json: true
-    }).then(
-        response => res.send({
-            _links: {
-                parent: {href: '/'},
-                self: {href: '/numbers'}
-            },
-            _items: response.data.map(
-                number => _.assign(
-                    {
-                        _links: {
-                            parent: {href: '/numbers'},
-                            self: {href: `/numbers/${encodeURIComponent(number.id)}`}
-                        }
-                    },
-                    number
-                )
-            )
-        }),
-        reason => res.status(500).send(reason)
-    );
+    console.log('numbers');
+    me('numbers').getResource((error, resource) => {
+        console.log(arguments);
+        if (error) {
+            res.status(500).send(error);
+        } else {
+            res.send(resource._embedded.numbers.map(number => {delete number._links; return number;}));
+        }
+    });
 };
