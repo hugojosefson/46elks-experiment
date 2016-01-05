@@ -1,7 +1,7 @@
-import {PORT, ELKS_PORT, ADMIN_PORT} from './lib/config';
-import publicApp from './lib/public-app';
-import elksApi from './lib/elks-api';
-import adminApi from './lib/admin-api';
+import {PORT, ELKS_PORT, ADMIN_PORT} from './config';
+import publicApp from './public-app';
+import elksApi from './elks-api';
+import adminApi from './admin-api';
 
 const listenListener = (name, port) => err => {
     if (err) {

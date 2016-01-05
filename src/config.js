@@ -1,10 +1,11 @@
+/*eslint-disable no-process-env*/
 export const PORT = process.env.PORT || 3000;
 export const ELKS_PORT = process.env.ELKS_PORT || 3001;
 export const ADMIN_PORT = process.env.ADMIN_PORT || 3002;
 export const VOICERSS_KEY = process.env.VOICERSS_KEY;
 export const ELKS_API_USERNAME = process.env.ELKS_API_USERNAME;
 export const ELKS_API_PASSWORD = process.env.ELKS_API_PASSWORD;
-export const ELKS_API_URI = 'https://api.46elks.com/a1/';
+export const ELKS_API_URI = 'https://api.46elks.com/a1';
 
 const LOCALTUNNEL_SUBDOMAIN = process.env.LOCALTUNNEL_SUBDOMAIN;
 export const BASE_URL = process.env.BASE_URL || LOCALTUNNEL_SUBDOMAIN ? `https://${LOCALTUNNEL_SUBDOMAIN}.localtunnel.me` : undefined;
