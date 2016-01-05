@@ -9,6 +9,8 @@ Currently what I do here is an **answering machine**, programmable with text
 strings, using the [www.voicerss.org](http://www.voicerss.org/) API for
 text-to-speech (TTS) conversion.
 
+[![Build Status](https://travis-ci.org/hugojosefson/46elks-experiment.svg?branch=master)](https://travis-ci.org/hugojosefson/46elks-experiment)
+
 *Note: When this answering machine server receives a recorded voice message
 from 46elks, it is currently simply logged, and not sent anywhere.*
 
@@ -43,7 +45,7 @@ Sign up for an account at [46elks.com](https://www.46elks.com/) and purchase a
 phone number. You will need it for the incoming calls :)
 
 Configure the correct urls for the phone number:
- 
+
 [https://dashboard.46elks.com/numbers](https://dashboard.46elks.com/numbers)
 
 If you have set up localtunnel as per above with the name `yourname`, these are
@@ -106,7 +108,7 @@ npm start
     `sms_url` and `voice_start` fields set.
     * `GET    /numbers/unconfigured` lists all numbers not correctly configured to
     use this server. Indicates which of `sms` and `voice_start` need
-    configuring, or both. 
+    configuring, or both.
     * `POST   /numbers` allocates a new phone number with 46elks and configures
     it for use with this server.
     * `DELETE /numbers/:id` deallocates a phone number with 46elks.
