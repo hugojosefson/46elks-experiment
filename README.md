@@ -52,8 +52,8 @@ If you have set up localtunnel as per above with the name `yourname`, these are
 the correct urls:
 
 ```
-sms_url     = https://yourname.localtunnel.me/sms
-voice_start = https://yourname.localtunnel.me/voice/start
+sms_uri         = https://yourname.localtunnel.me/sms
+voice_start_uri = https://yourname.localtunnel.me/voice/start
 ```
 
 ### An account with voicerss
@@ -105,19 +105,19 @@ npm start
     * *DONE:* ~~`GET    /numbers` lists all phone numbers in the 46elks account.~~
     * `GET    /numbers/configured` lists all numbers configured to use this server.
     This means the full list is filtered on the numbers which have the correct
-    `sms_url` and `voice_start` fields set.
+    `sms_uri` and `voice_start_uri` fields set.
     * `GET    /numbers/unconfigured` lists all numbers not correctly configured to
-    use this server. Indicates which of `sms` and `voice_start` need
+    use this server. Indicates which of `sms_uri` and `voice_start_uri` need
     configuring, or both.
+    * `POST   /numbers/:id/configure` configures any of the 46elks account's
+    phone numbers to use this server, which means this server calls the 46elks
+    API and configures the number with relevant `sms_uri` and `voice_start_uri`.
     * `POST   /numbers` allocates a new phone number with 46elks and configures
     it for use with this server.
     * `DELETE /numbers/:id` deallocates a phone number with 46elks.
-    * `POST   /numbers/:id/configure` configures any of the 46elks account's
-    phone numbers to use this server, which means this server calls the 46elks
-    API and configures the number with relevant `sms_url` and `voice_start`.
     * `POST   /access-secrets` creates a new access secret and sets it as the
-    current, reconfiguring all configured phone numbers' `sms_url` and
-    `voice_start`'s. *This has consequences for `/numbers/configured` and
+    current, reconfiguring all configured phone numbers' `sms_uri` and
+    `voice_start_uri`'s. *This has consequences for `/numbers/configured` and
     `/numbers/unconfigured`, so their specification and implementations must be
     updated when this is implemented.*
     * `GET    /access-secrets` lists all active access secrets, specifying which
