@@ -130,7 +130,7 @@ npm start
       * Fetch and display phone numbers belonging to the 46elks account, and
       their configuration status. (`GET /numbers`)
       * Show phone numbers with flags, for example
-      ![Flag indicating Swedish number](http://www.flag-cdn.com/flags/16/se.png)
+      ![Flag indicating Swedish number](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/se.png)
       +46070000000
       * Click to configure a phone number to use this server.
       * Click to allocate a new phone number with 46elks.
