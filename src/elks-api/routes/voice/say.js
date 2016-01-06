@@ -1,3 +1,3 @@
-import {BASE_URL} from '../../../config';
+import {BASE_URI} from '../../../config';
 
-export default (text, lang = 'sv-se') => `${BASE_URL}/speak/${encodeURIComponent(lang)}/${encodeURIComponent(text)}`;
+export default (text, lang = 'sv-se') => `${BASE_URI}/speak/${encodeURIComponent(lang)}/${encodeURIComponent(text)}`;

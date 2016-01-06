@@ -26,7 +26,7 @@ npm install
 
 ## Prerequisites
 
-### A public hosting URL
+### A public hosting URI
 
 The app needs to be publicly accessible (at least for 46elks).
 
@@ -44,12 +44,12 @@ npm run localtunnel
 Sign up for an account at [46elks.com](https://www.46elks.com/) and purchase a
 phone number. You will need it for the incoming calls :)
 
-Configure the correct urls for the phone number:
+Configure the correct uris for the phone number:
 
 [https://dashboard.46elks.com/numbers](https://dashboard.46elks.com/numbers)
 
 If you have set up localtunnel as per above with the name `yourname`, these are
-the correct urls:
+the correct uris:
 
 ```
 sms_uri         = https://yourname.localtunnel.me/sms
@@ -68,12 +68,12 @@ Obtain an API key.
 export ELKS_API_USERNAME=00000000000000  # use your actual API username from dashboard.46elks.com
 export ELKS_API_PASSWORD=00000000000000  # use your actual API password from dashboard.46elks.com
 export VOICERSS_KEY=0000000000000000000  # use your actual API key from www.voicerss.org
-export BASE_URL=https://your.server.tld  # where 46elks can access your server, without trailing slash
+export BASE_URI=https://your.server.tld  # where 46elks can access your server, without trailing slash
 export PORT=3001                         # to optionally set which port your server should listen on (default is 3001)
 npm start
 ```
 
-If you are using `localtunnel`, you can use `LOCALTUNNEL_SUBDOMAIN` instead of `BASE_URL` if you want:
+If you are using `localtunnel`, you can use `LOCALTUNNEL_SUBDOMAIN` instead of `BASE_URI` if you want:
 
 ```bash
 export ELKS_API_USERNAME=00000000000000  # use your actual API username from dashboard.46elks.com
@@ -96,7 +96,7 @@ npm start
     secret long "directory" which only 46elks would know about; for example
     `https://myserver.domain.tld/bw87cbw34trinw7t4irtwxi4rti8q4rxit/voice/start`
       * Use [urlsafe-base64](https://www.npmjs.com/package/urlsafe-base64) to
-      generate that access secret in the url.
+      generate that access secret in the uri.
       * When creating a new current access secret, set a TTL on the previous
       access secret for how long it remains valid.
   * Do something with recorded voice messages, instead of simply logging their

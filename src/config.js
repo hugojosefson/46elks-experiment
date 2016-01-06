@@ -8,10 +8,10 @@ export const ELKS_API_PASSWORD = process.env.ELKS_API_PASSWORD;
 export const ELKS_API_URI = 'https://api-suggestion-46elks.herokuapp.com/v2';
 
 const LOCALTUNNEL_SUBDOMAIN = process.env.LOCALTUNNEL_SUBDOMAIN;
-export const BASE_URL = process.env.BASE_URL || LOCALTUNNEL_SUBDOMAIN ? `https://${LOCALTUNNEL_SUBDOMAIN}.localtunnel.me` : undefined;
+export const BASE_URI = process.env.BASE_URI || LOCALTUNNEL_SUBDOMAIN ? `https://${LOCALTUNNEL_SUBDOMAIN}.localtunnel.me` : undefined;
 
-if (!BASE_URL) {
-    throw new Error("Must set BASE_URL in env to your server's public url.");
+if (!BASE_URI) {
+    throw new Error("Must set BASE_URI in env to your server's public uri.");
 }
 
 if (!VOICERSS_KEY) {
@@ -32,5 +32,5 @@ console.log(`+------------------------------------------------+`);
 console.log(`| PORT:       ${PORT}`);
 console.log(`| ELKS_PORT:  ${ELKS_PORT}`);
 console.log(`| ADMIN_PORT: ${ADMIN_PORT}`);
-console.log(`| BASE_URL:   ${BASE_URL}`);
+console.log(`| BASE_URI:   ${BASE_URI}`);
 console.log(`==================================================`);

@@ -1,4 +1,4 @@
-import {BASE_URL} from '../../../config';
+import {BASE_URI} from '../../../config';
 import {respond200} from 'express-respond-simple';
 import bodyParser from 'body-parser';
 const parseUrlEncoded = bodyParser.urlencoded({extended: true});
@@ -15,7 +15,7 @@ export default [
         next: {
             play: 'sound/beep',
             next: {
-                record: `${BASE_URL}/voice/recorded`,
+                record: `${BASE_URI}/voice/recorded`,
                 next: {
                     play: say('Tack för samtalet. Välkommen åter!')
                 }
