@@ -22,7 +22,7 @@
     "basic-auth": "^1.0.3",
     "body-parser": "^1.14.1",
     "express": "^5.0.0-alpha.2",
-    "express-respond-simple": "^1.0.0",
+    "express-respond-simple": "^1.1.0",
     "is-production": "^1.0.1",
     "lodash": "^3.10.1",
     "piping": "^0.3.0",
