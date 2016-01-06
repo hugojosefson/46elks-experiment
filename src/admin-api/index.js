@@ -3,6 +3,7 @@ import allowMethods from 'allow-methods';
 import {respond200} from 'express-respond-simple';
 
 import numbers from './routes/numbers';
+import configureNumber from './routes/numbers/configure-post';
 
 const app = express();
 
@@ -13,6 +14,9 @@ app.get('/health', respond200({
     },
     status: 'good'
 }));
+
+app.use('/numbers/:uri/configure', allowMethods(['OPTIONS', 'POST']));
+app.post('/numbers/:uri/configure', configureNumber);
 
 app.use('/numbers', allowMethods(['OPTIONS', 'GET']));
 app.get('/numbers', numbers);

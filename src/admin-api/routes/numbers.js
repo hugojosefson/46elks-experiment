@@ -1,3 +1,5 @@
+import {encode} from 'urlsafe-base64';
+
 import {me} from '../../api';
 
 export default (req, res) => {
@@ -7,7 +9,14 @@ export default (req, res) => {
         if (error) {
             res.status(500).send(error);
         } else {
-            res.send(resource._embedded.numbers.map(number => {delete number._links; return number;}));
+            res.send(resource._embedded.numbers.map(number => {
+                number._links = {
+                    parent: {href: req.originalUrl},
+                    configure: {href: req.originalUrl + '/' + encode(new Buffer(number._links.self.href)) + '/configure'}
+                };
+                delete number.id;
+                return number;
+            }));
         }
     });
 };
