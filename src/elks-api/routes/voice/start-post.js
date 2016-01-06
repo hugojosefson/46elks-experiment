@@ -1,14 +1,12 @@
 import {BASE_URI} from '../../../config';
 import {respond200} from 'express-respond-simple';
 import bodyParser from 'body-parser';
-const parseUrlEncoded = bodyParser.urlencoded({extended: true});
-
 import log from '../../../log';
 
 import say from './say';
 
 export default [
-    parseUrlEncoded,
+    bodyParser.json(),
     log,
     respond200({
         play: say('Hej! Välkommen till min röstbrevlåda. Säg något.'),
