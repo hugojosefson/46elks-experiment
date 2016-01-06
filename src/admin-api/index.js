@@ -2,10 +2,13 @@ import express from 'express';
 import allowMethods from 'allow-methods';
 import {respond200} from 'express-respond-simple';
 
+import log from '../log';
 import numbers from './routes/numbers';
 import configureNumber from './routes/numbers/configure-post';
 
 const app = express();
+
+app.use(log);
 
 app.use('/health', allowMethods(['OPTIONS', 'GET']));
 app.get('/health', respond200({
