@@ -5,7 +5,7 @@ export const ADMIN_PORT = process.env.ADMIN_PORT || 3002;
 export const VOICERSS_KEY = process.env.VOICERSS_KEY;
 export const ELKS_API_USERNAME = process.env.ELKS_API_USERNAME;
 export const ELKS_API_PASSWORD = process.env.ELKS_API_PASSWORD;
-export const ELKS_API_URI = 'https://api-suggestion-46elks.herokuapp.com/v2';
+export const ELKS_API_URI = process.env.ELKS_API_URI || 'https://api-suggestion-46elks.herokuapp.com/v2';
 
 const LOCALTUNNEL_SUBDOMAIN = process.env.LOCALTUNNEL_SUBDOMAIN;
 export const BASE_URI = process.env.BASE_URI || LOCALTUNNEL_SUBDOMAIN ? `https://${LOCALTUNNEL_SUBDOMAIN}.localtunnel.me` : undefined;
