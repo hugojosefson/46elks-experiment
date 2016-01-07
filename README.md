@@ -103,12 +103,15 @@ npm start
   URI to console. Probably with [nodemailer](https://www.npmjs.com/package/nodemailer).
   * Add admin service on a port not exposed to the Internet:
     * *DONE:* ~~`GET    /numbers` lists all phone numbers in the 46elks account.~~
-    * `POST   /numbers/:id/configure` configures any of the 46elks account's
+    * *DONE:* ~~`POST   /numbers/:id/configure` configures any of the 46elks account's
     phone numbers to use this server, which means this server calls the 46elks
-    API and configures the number with relevant `sms_uri` and `voice_start_uri`.
+    API and configures the number with relevant `sms_uri` and `voice_start_uri`.~~
+    * `POST   /numbers/:id/configure` should allow optional `voice_start_action` to
+    be set.
     * `GET    /numbers/configured` lists all numbers configured to use this server.
     This means the full list is filtered on the numbers which have the correct
-    `sms_uri` and `voice_start_uri` fields set.
+    `sms_uri` and `voice_start_uri`/`voice_start_action` fields set. Checking
+    `voice_start_uri` means checking all its included action URI's.
     * `GET    /numbers/unconfigured` lists all numbers not correctly configured to
     use this server. Indicates which of `sms_uri` and `voice_start_uri` need
     configuring, or both.
