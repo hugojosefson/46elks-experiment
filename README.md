@@ -1,5 +1,7 @@
 # 46elks-experiment
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hugojosefson/46elks-experiment.svg)](https://greenkeeper.io/)
+
 Experimenting with using the very interesting telephony/sms API
 [46elks.com](https://www.46elks.com/).
 
