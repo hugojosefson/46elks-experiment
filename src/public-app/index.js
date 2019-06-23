@@ -1,10 +1,11 @@
-import express from 'express';
-import allowMethods from 'allow-methods';
-import {respond200} from 'express-respond-simple';
+import express from 'express'
+import allowMethods from 'allow-methods'
+import ExpressRespondSimple from 'express-respond-simple'
+const { respond200 } = ExpressRespondSimple
 
-const app = express();
+const app = express()
 
-app.use('/health', allowMethods(['OPTIONS', 'GET']));
-app.get('/health', respond200({status: 'good'}));
+app.use('/health', allowMethods(['OPTIONS', 'GET']))
+app.get('/health', respond200({ status: 'good' }))
 
-export default app;
+export default app

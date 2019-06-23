@@ -1,5 +1,5 @@
-import voiceRss from './voice-rss';
+import voiceRss from './voice-rss'
 
 export default key => (req, res) =>
-    voiceRss(key)(req.params.lang)(req.params.text)
-        .pipe(res);
+  voiceRss(key)(req.params.lang)(req.params.text)
+    .pipe(res)
